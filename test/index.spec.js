@@ -14,40 +14,6 @@ describe("Function Guru", function () {
 
     const functions = require(path);
 
-    describe('objectValues()', function() {
-      it('Should take an object and return its values in an array', function() {
-        var objectOne = {a: "one", b: "two", ponies: "crayons", dingle: "dangle"};
-        var objectTwo = {c: "three", d: "four", crayons: "ponies", dangle: "dingle"};
-        assert.deepEqual(functions.objectValues(objectOne), ["one","two","crayons","dangle"]);
-        assert.deepEqual(functions.objectValues(objectTwo), ["three","four","ponies","dingle"]);
-      });
-    });
-
-    describe('keysToString()', function() {
-      it('Should take an object and return all its keys in a string each separated with a space', function() {
-        var objectOne = {a: "one", b: "two", ponies: "crayons", dingle: "dangle"};
-        var objectTwo = {c: "three", d: "four", crayons: "ponies", dangle: "dingle"};
-        assert.equal(functions.keysToString(objectOne), "a b ponies dingle");
-        assert.equal(functions.keysToString(objectTwo), "c d crayons dangle");
-      });
-    });
-
-    describe('valuesToString()', function() {
-      it('Should take an object and return all its string values in a string each separated with a space', function() {
-        var objectOne = {a: "one", b: "two", ponies: "crayons", something: {}, dingle: "dangle"};
-        var objectTwo = {c: "three", boolean: false, d: "four", crayons: "ponies", dangle: "dingle"};
-        assert.equal(functions.valuesToString(objectOne), "one two crayons dangle");
-        assert.equal(functions.valuesToString(objectTwo), "three four ponies dingle");
-      });
-    });
-
-    describe('arrayOrObject()', function() {
-      it('Should take one argument and return \'array\' if its an array and \'object\' if it is an object', function() {
-        assert.equal(functions.arrayOrObject({a:"one"}), "object");
-        assert.equal(functions.arrayOrObject([1,2,{}]), "array");
-      });
-    });
-
     describe('capitalizeWord()', function() {
       it('Should take a string of one word, and return the word with its first letter capitalized', function() {
         assert.equal(functions.capitalizeWord("greg"), "Greg");
@@ -77,14 +43,6 @@ describe("Function Guru", function () {
       });
     });
 
-    describe('maybeNoises()', function() {
-      it('Should take an object, if this object has a noises array return them as a string separated by a space, if there are no noises return \'there are no noises\'', function() {
-        assert.equal(functions.maybeNoises({noises:["bark", "woof", "squeak","growl"]}), "bark woof squeak growl");
-        assert.equal(functions.maybeNoises({noises: []}), "there are no noises");
-        assert.equal(functions.maybeNoises({}), "there are no noises");
-      });
-    });
-
     describe('hasWord()', function() {
       it('Should take a string of words and a word and return true if <word> is in <string of words>, otherwise return false.', function() {
         var data = "This is a super awesome string of words";
@@ -106,20 +64,6 @@ describe("Function Guru", function () {
         assert.equal(functions.isFriend("jimmy",{friends:["bobby", "ralf"]}), false);
         assert.equal(functions.isFriend("ralf",{friends:["bobby", "ralf"]}), true);
         assert.equal(functions.isFriend("chuck",{}), false);
-      });
-    });
-
-    describe('nonFriends()', function() {
-      it('Should take a name and a list of people, and return a list of all the names that <name> is not friends with', function() {
-        var data = [
-          {name: "Jimmy", friends:["Sara", "Liza"]},
-          {name: "Bob", friends:[]},
-          {name: "Liza", friends: ["Jimmy"]},
-          {name: "Sara", friends: ["Jimmy"]}
-        ];
-        assert.deepEqual(functions.nonFriends("Jimmy", data), ["Bob"]);
-        assert.deepEqual(functions.nonFriends("Bob", data), ["Jimmy", "Liza", "Sara"]);
-        assert.deepEqual(functions.nonFriends("Sara", data), ["Bob","Liza"]);
       });
     });
 
