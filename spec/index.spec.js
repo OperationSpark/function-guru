@@ -67,7 +67,7 @@ describe("Function Guru", function () {
     });
 
     describe('updateObject()', function() {
-      it('Should take an object, a key and a value. Should update the property <key> on <object> with new <value>. If <key> does not exist on <object> create it.', function() {
+      it('Should take an object, a key and a value. Should update the property <key> on <object> with new <value>.', function() {
         var data = {a: "one", b: "two", "hokey": false};
         assert.deepEqual( updateObject(data, "b", "three"), {a:"one", b:"three", hokey: false}, 'test1');
         var data = {a: "one", b: "two", "hokey": false};
