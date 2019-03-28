@@ -1,7 +1,3 @@
-// const
-//     sinon = require('sinon'),
-//     path = '../function-guru';
-
 describe("Function Guru", function () {
     beforeEach(function () {
         sinon.spy(console, 'log');
@@ -10,8 +6,6 @@ describe("Function Guru", function () {
     afterEach(function () {
         console.log.restore();
     });
-
-    // const functions = require(path);
 
     describe('capitalizeWord()', function() {
       it('Should take a string of one word, and return the word with its first letter capitalized', function() {
