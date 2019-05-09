@@ -63,11 +63,16 @@ describe("Function Guru", function () {
     describe('updateObject()', function() {
       it('Should take an object, a key and a value. Should update the property <key> on <object> with new <value>.', function() {
         var data = {a: "one", b: "two", "hokey": false};
-        assert.deepEqual( updateObject(data, "b", "three"), {a:"one", b:"three", hokey: false}, 'test1');
+        updateObject(data, "b", "three")
+        assert.deepEqual( data, {a:"one", b:"three", hokey: false}, 'test1');
+        
         var data = {a: "one", b: "two", "hokey": false};
-        assert.deepEqual( updateObject(data, "ponies", "yes"), {a:"one", b:"two", hokey: false, ponies: "yes"}, 'test2');
+        updateObject(data, "ponies", "yes")
+        assert.deepEqual( data, {a:"one", b:"two", hokey: false, ponies: "yes"}, 'test2');
+        
         var data = {a: "one", b: "two", "hokey": false};
-        assert.deepEqual( updateObject(data, "a", Infinity), {a:Infinity, b:"two", hokey: false}, 'test3');
+        updateObject(data, "a", Infinity)
+        assert.deepEqual( data, {a:Infinity, b:"two", hokey: false}, 'test3');
       });
     });
 
