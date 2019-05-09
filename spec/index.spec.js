@@ -73,19 +73,16 @@ describe("Function Guru", function () {
 
     describe('removeProperties()', function() {
       it('Should take an object and an array of strings. Should remove any properties on <object> that are listed in <array>', function() {
-        var data =
-        {a: "one", b: "two", "hokey": false};
-         removeProperties(data, ["a","hokey"]);
+        var data = {a: "one", b: "two", "hokey": false};
+        removeProperties(data, ["a","hokey"]);
         assert.deepEqual(data, {b: "two"}, 'test1');
 
-        var data =
-        {a: "one", b: "two", "hokey": false};
-         removeProperties(data, ["b"])
+        data = {a: "one", b: "two", "hokey": false};
+        removeProperties(data, ["b"])
         assert.deepEqual(data, {a: "one", "hokey": false}, 'test2');
 
-        var data =
-        {a: "one", b: "two", hokey: false};
-         removeProperties(data, []);
+        data = {a: "one", b: "two", hokey: false};
+        removeProperties(data, []);
         assert.deepEqual(data, {a: "one", b: "two", "hokey": false}, 'test3');
       });
     });
