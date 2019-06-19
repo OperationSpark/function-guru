@@ -70,28 +70,30 @@ describe("Function Guru", function () {
     describe('updateObject()', function() {
       it('Should take an object, a key and a value. Should update the property <key> on <object> with new <value>. If <key> does not exist on <object> create it.', function() {
         var data = {a: "one", b: "two", "hokey": false};
-        assert.deepEqual(functions.updateObject(data, "b", "three"), {a:"one", b:"three", hokey: false});
+        functions.updateObject(data, "b", "three")
+        assert.deepEqual(data, {a:"one", b:"three", hokey: false});
+          
         var data = {a: "one", b: "two", "hokey": false};
-        assert.deepEqual(functions.updateObject(data, "ponies", "yes"), {a:"one", b:"two", hokey: false, ponies: "yes"});
+        functions.updateObject(data, "ponies", "yes")
+        assert.deepEqual(data, {a:"one", b:"two", hokey: false, ponies: "yes"});
+          
         var data = {a: "one", b: "two", "hokey": false};
-        assert.deepEqual(functions.updateObject(data, "a", Infinity), {a:Infinity, b:"two", hokey: false});
+        functions.updateObject(data, "a", Infinity)
+        assert.deepEqual(data, {a:Infinity, b:"two", hokey: false});
       });
     });
 
     describe('removeProperties()', function() {
       it('Should take an object and an array of strings. Should remove any properties on <object> that are listed in <array>', function() {
-        var data =
-        {a: "one", b: "two", "hokey": false};
+        var data = {a: "one", b: "two", "hokey": false};
         functions.removeProperties(data, ["a","hokey"]);
         assert.deepEqual(data, {b: "two"});
 
-        var data =
-        {a: "one", b: "two", "hokey": false};
+        var data = {a: "one", b: "two", "hokey": false};
         functions.removeProperties(data, ["b"])
         assert.deepEqual(data, {a: "one", "hokey": false});
 
-        var data =
-        {a: "one", b: "two", hokey: false};
+        var data = {a: "one", b: "two", hokey: false};
         functions.removeProperties(data, []);
         assert.deepEqual(data, {a: "one", b: "two", "hokey": false});
       });
